@@ -6,9 +6,13 @@ This project is about implementing the SEMMA methodology at SAS Enterprise Miner
 
 ## Group Members
 Nuradlina binti Shahrul Niza (U2001211/2)
+
 Izyan Yasmin binti Husin (U2002173/2)
+
 Aina Sofea binti Azhar (U2102790/1)
+
 Aiman Fatihah binti Ahmad Razif (17206983)
+
 Hanan binti Muhammad Nizam (17206018/2)
 
 ## Project Structure
