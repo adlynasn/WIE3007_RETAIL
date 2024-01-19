@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?><_ROOT_ EMVERSION="15.2" ORIENTATION="HORIZONTAL">
+<Workspace>
+<NODES>
+<NODE CLASS="SASHELP.EMEXPL.ASSOCIATE.CLASS" COMPONENT="Association" ID="Assoc" X="741" Y="594" DESCRIPTION="Association" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="EXPLORE" TOOLPREFIX="Assoc">
+<PROPERTIES ItemCount="4" AssocSupportType="PERCENT" SeqSupportType="PERCENT" SupportA="." MinConf="10" PctsupA="5" PctsupS="2" SupportS="." ChainCount="3" ConsolTime="0" MaxDur="." Criterion="DEFAULT" NumRules="200" NumTransposeRules="200" MaxItems="100000" ExportIdRule="N" Recommendation="N" ForceRun="N" RunAction="Train" Component="Association">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes/>
+<EmFileProperties>
+<RULESFILTER Type="DATA">
+<Data/>
+<Metadata/>
+</RULESFILTER>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="FileImport" ID="FIMPORT" X="329" Y="300" DESCRIPTION="File Import" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="SAMPLE" TOOLPREFIX="FIMPORT">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMSAMP.Fimport.SOURCE" ImportType="Remote" GuessRows="500" Delimiter="," NameRow="Y" SkipRows="0" MaxRows="1000000" MaxCols="10000" FileType="csv" Role="TRAIN" ForceRun="N" Summarize="N" AdvancedAdvisor="N" RunAction="Train" Component="FileImport" IFileName="/home/u63717600/SEMMA/DataSources/UPD_RETAIL (1).csv" AccessTable="NoTableName" UserID="NoUserID" Password="NoPassword">
+<VariableProperties/>
+<EmVariableAttributes>
+<DELTA Variable="CustomerID" AttributeName="ROLE" AttributeValue="SEGMENT"/>
+<DELTA Variable="CustomerID" AttributeName="LEVEL" AttributeValue="NOMINAL"/>
+<DELTA Variable="Invoice" AttributeName="ROLE" AttributeValue="ID"/>
+<DELTA Variable="Invoice" AttributeName="LEVEL" AttributeValue="NOMINAL"/>
+<DELTA Variable="Price" AttributeName="ROLE" AttributeValue="TARGET"/>
+<DELTA Variable="Quantity" AttributeName="LEVEL" AttributeValue="NOMINAL"/>
+<DELTA Variable="StockCode" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="StockCode" AttributeName="LEVEL" AttributeValue="NOMINAL"/>
+</EmVariableAttributes>
+<EmTargetAttributes/>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<VARIABLESETDELTA Type="EXTERNAL" Extension="txt">
+<Data><![CDATA[
+if NAME=&quot;CustomerID&quot; then do;
+ROLE=&quot;SEGMENT&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Invoice&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Price&quot; then do;
+ROLE=&quot;TARGET&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Quantity&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;StockCode&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+]]>
+</Data>
+</VARIABLESETDELTA>
+<DELTACODE Type="EXTERNAL" Extension="txt">
+<Data><![CDATA[
+if NAME=&quot;CustomerID&quot; then do;
+ROLE=&quot;SEGMENT&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Invoice&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Price&quot; then do;
+ROLE=&quot;TARGET&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Quantity&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;StockCode&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+drop DROP;
+]]>
+</Data>
+</DELTACODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="FileImport" ID="FIMPORT2" X="313" Y="574" DESCRIPTION="File Import" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="SAMPLE" TOOLPREFIX="FIMPORT">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMSAMP.FIMPORT.SOURCE" ImportType="Remote" GuessRows="500" Delimiter="," NameRow="Y" SkipRows="0" MaxRows="1000000" MaxCols="10000" FileType="csv" Role="TRANSACTION" ForceRun="N" Summarize="N" AdvancedAdvisor="N" RunAction="Train" Component="FileImport" IFileName="/home/u63717600/SEMMA/DataSources/UPD_RETAIL (1).csv" AccessTable="NoTableName" UserID="NoUserID" Password="NoPassword">
+<VariableProperties/>
+<EmTargetAttributes/>
+<EmVariableAttributes>
+<DELTA Variable="CustomerID" AttributeName="ROLE" AttributeValue="SEGMENT"/>
+<DELTA Variable="CustomerID" AttributeName="LEVEL" AttributeValue="NOMINAL"/>
+<DELTA Variable="Description" AttributeName="ROLE" AttributeValue="TARGET"/>
+<DELTA Variable="Invoice" AttributeName="ROLE" AttributeValue="ID"/>
+<DELTA Variable="Invoice" AttributeName="LEVEL" AttributeValue="NOMINAL"/>
+<DELTA Variable="Quantity" AttributeName="LEVEL" AttributeValue="NOMINAL"/>
+<DELTA Variable="StockCode" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="StockCode" AttributeName="LEVEL" AttributeValue="NOMINAL"/>
+</EmVariableAttributes>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<VARIABLESETDELTA Type="EXTERNAL" Extension="txt">
+<Data><![CDATA[
+if NAME=&quot;CustomerID&quot; then do;
+ROLE=&quot;SEGMENT&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Description&quot; then do;
+ROLE=&quot;TARGET&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Invoice&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Quantity&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;StockCode&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+]]>
+</Data>
+</VARIABLESETDELTA>
+<DELTACODE Type="EXTERNAL" Extension="txt">
+<Data><![CDATA[
+if NAME=&quot;CustomerID&quot; then do;
+ROLE=&quot;SEGMENT&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Description&quot; then do;
+ROLE=&quot;TARGET&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Invoice&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Quantity&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;StockCode&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+drop DROP;
+]]>
+</Data>
+</DELTACODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="GraphExplore" ID="GrfExpl" X="729" Y="253" DESCRIPTION="Graph Explore" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="EXPLORE" TOOLPREFIX="GrfExpl">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMEXPL.GRAPHEXPLORE.SOURCE" EmSampleMethod="FIRSTN" EmSampleSize="DEFAULT" EmRandomSeed="12345" Target="Y" GroupByTarget="Y" ForceRun="N" RunAction="Train" Component="GraphExplore" DataSource="SAMPLE" DataNeeded="Y">
+<VariableProperties/>
+<EmVariableAttributes>
+<DELTA Variable="Country" AttributeName="USE" AttributeValue="Y"/>
+<DELTA Variable="Country" AttributeName="ROLE" AttributeValue="CLASSIFICATION"/>
+<DELTA Variable="CustomerID" AttributeName="ROLE" AttributeValue="INPUT"/>
+<DELTA Variable="CustomerID" AttributeName="LEVEL" AttributeValue="ORDINAL"/>
+<DELTA Variable="Invoice" AttributeName="LEVEL" AttributeValue="INTERVAL"/>
+<DELTA Variable="Price" AttributeName="ROLE" AttributeValue="INPUT"/>
+<DELTA Variable="Quantity" AttributeName="USE" AttributeValue="Y"/>
+<DELTA Variable="Quantity" AttributeName="ROLE" AttributeValue="SEQUENCE"/>
+<DELTA Variable="Quantity" AttributeName="LEVEL" AttributeValue="INTERVAL"/>
+<DELTA Variable="StockCode" AttributeName="ROLE" AttributeValue="TARGET"/>
+<DELTA Variable="TotalPrice" AttributeName="LEVEL" AttributeValue="NOMINAL"/>
+</EmVariableAttributes>
+<EmTargetAttributes/>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMEXPL.VARSELECTION.CLASS" COMPONENT="VariableSelection" ID="Varsel" X="727" Y="421" DESCRIPTION="Variable Selection" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="EXPLORE" TOOLPREFIX="Varsel">
+<PROPERTIES TargetModel="DEFAULT" HideRejectedVars="Y" MaxMissingPercent="50" MaxLevel="100" RejectUnusedInputVars="Y" ByPassVars="NONE" ByPassVarsRole="INPUT" HideUnusedInputVars="Y" UseAov16="N" UseInteractions="N" UseGroups="Y" MinR2="0.005" StopR2="0.0005" MaxRows="3000" Passes="6" ChiSquare="3.84" Bins="50" SASSPDS="Y" PrintOption="DEFAULT" ForceRun="N" RunAction="Train" Component="VariableSelection" VarselLabel="VARSELLABEL" RoleUnusedVars="DEFAULT">
+<VariableProperties/>
+<ManualSelectionVariables/>
+<NameMappings/>
+<EmVariableAttributes/>
+<EmTargetAttributes>
+<Price>
+<DecData Table="EMWS1.Varsel_Price_DD">
+<Data>
+<Obs PRICE="0"/>
+<Obs PRICE="4.21"/>
+<Obs PRICE="0.7996411609"/>
+</Data>
+<Metadata>
+<Variable NAME="Price" LABEL="" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecData>
+<DecMeta Table="EMWS1.Varsel_Price_DM">
+<Data>
+<Obs _TYPE_="MATRIX" VARIABLE="" LABEL="" FORMAT="" LEVEL="PROFIT" TYPE="" COST="" USE="N" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="TARGET" VARIABLE="Price" LABEL="" FORMAT="BEST12.0" LEVEL="INTERVAL" TYPE="N" COST="" USE="" MIN="0" MEAN="0.7996411609" MAX="4.21"/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_Price" LABEL="Predicted: Price" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_Price" LABEL="Residual: Price" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+</Data>
+<Metadata>
+<Variable NAME="_TYPE_" LABEL="Type" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="VARIABLE" LABEL="Variable" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LABEL" LABEL="Label" LENGTH="256" FORMAT="" TYPE="C"/>
+<Variable NAME="FORMAT" LABEL="Format" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LEVEL" LABEL="Measurement Level" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="TYPE" LABEL="Type" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="COST" LABEL="Cost" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="USE" LABEL="Use" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="MIN" LABEL="Minimum" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MEAN" LABEL="Mean" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MAX" LABEL="Maximum" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecMeta>
+</Price>
+</EmTargetAttributes>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+</NODES>
+<CONNECTIONS>
+<CONNECTION FROM="FIMPORT" TO="GrfExpl"/>
+<CONNECTION FROM="FIMPORT" TO="Varsel"/>
+<CONNECTION FROM="FIMPORT2" TO="Assoc"/>
+</CONNECTIONS>
+<NOTES>
+<DATA><![CDATA[
+
+]]>
+</DATA>
+</NOTES>
+</Workspace>
+</_ROOT_>

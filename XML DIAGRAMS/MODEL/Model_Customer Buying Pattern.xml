@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><_ROOT_ EMVERSION="15.2" ORIENTATION="HORIZONTAL">
+<Workspace>
+<NODES>
+<NODE CLASS="SASHELP.EMEXPL.CLUSTER.CLASS" COMPONENT="Cluster" ID="Clus" X="317" Y="87" DESCRIPTION="Cluster" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="EXPLORE" TOOLPREFIX="Clus">
+<PROPERTIES Bins="100" Clusvar="_SEGMENT_" ClusvarLabel="Segment Variable" ClusvarRole="SEGMENT" MaxC="10" NominalEncoding="GLM" OrdinalEncoding="RANK" MissingInterval="DEFAULT" MissingNominal="DEFAULT" MissingOrdinal="DEFAULT" ImputationMethod="NONE" HideVariable="Y" TrainDefaults="Y" Learn="." LearnInitial="0.5" LearnFinal="0.02" LearnSteps="1000" MaxIter="10" MaxSteps="1200" XConv="0.0001" Initial="DEFAULT" Drift="N" Radius="0" Stdize="STD" Summary="N" TreeProfile="Y" ClusterGraphs="Y" NumberClusterMethod="AUTOMATIC" DistancePlot="Y" FinalMaxNum="20" AutomaticMaxNum="50" AutomaticMinNum="2" AutomaticMethod="WARD" CCCCutOff="3" ForceRun="N" RunAction="Train" Component="Cluster">
+<VariableProperties/>
+<EmVariableAttributes>
+<DELTA Variable="Category" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Country" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="CustomerID" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Description" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Month" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Price" AttributeName="USE" AttributeValue="Y"/>
+<DELTA Variable="Quantity" AttributeName="USE" AttributeValue="Y"/>
+<DELTA Variable="StockCode" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="TotalPrice" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="VAR1" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Year" AttributeName="USE" AttributeValue="N"/>
+</EmVariableAttributes>
+<EmTargetAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="FileImport" ID="FIMPORT" X="154" Y="87" DESCRIPTION="File Import" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="SAMPLE" TOOLPREFIX="FIMPORT">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMSAMP.Fimport.SOURCE" ImportType="Local" GuessRows="500" Delimiter="," NameRow="Y" SkipRows="0" MaxRows="1000000" MaxCols="10000" FileType="csv" Role="TRAIN" ForceRun="N" Summarize="N" AdvancedAdvisor="N" RunAction="Train" Component="FileImport" IFileName="C:\Users\AINA SOFEA AZHAR\Desktop\UPD_RETAIL MODIFIED.csv" AccessTable="NoTableName" UserID="NoUserID" Password="NoPassword">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes/>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<VARIABLESETDELTA Type="EXTERNAL" Extension="txt">
+<Data/>
+</VARIABLESETDELTA>
+<DELTACODE Type="EXTERNAL" Extension="txt">
+<Data/>
+</DELTACODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+</NODES>
+<CONNECTIONS>
+<CONNECTION FROM="FIMPORT" TO="Clus"/>
+</CONNECTIONS>
+<NOTES>
+<DATA><![CDATA[
+
+]]>
+</DATA>
+</NOTES>
+</Workspace>
+</_ROOT_>

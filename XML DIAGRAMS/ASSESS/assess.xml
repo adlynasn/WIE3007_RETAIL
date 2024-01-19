@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?><_ROOT_ EMVERSION="15.2" ORIENTATION="HORIZONTAL">
+<Workspace>
+<NODES>
+<NODE CLASS="SASHELP.EMEXPL.CLUSTER.CLASS" COMPONENT="Cluster" ID="Clus" X="353" Y="133" DESCRIPTION="Cluster" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="EXPLORE" TOOLPREFIX="Clus">
+<PROPERTIES Bins="100" Clusvar="_SEGMENT_" ClusvarLabel="Segment Variable" ClusvarRole="SEGMENT" MaxC="10" NominalEncoding="GLM" OrdinalEncoding="RANK" MissingInterval="DEFAULT" MissingNominal="DEFAULT" MissingOrdinal="DEFAULT" ImputationMethod="NONE" HideVariable="Y" TrainDefaults="Y" Learn="." LearnInitial="0.5" LearnFinal="0.02" LearnSteps="1000" MaxIter="10" MaxSteps="1200" XConv="0.0001" Initial="DEFAULT" Drift="N" Radius="0" Stdize="STD" Summary="N" TreeProfile="Y" ClusterGraphs="Y" NumberClusterMethod="AUTOMATIC" DistancePlot="Y" FinalMaxNum="20" AutomaticMaxNum="50" AutomaticMinNum="2" AutomaticMethod="WARD" CCCCutOff="3" ForceRun="N" RunAction="Train" Component="Cluster">
+<VariableProperties/>
+<EmVariableAttributes>
+<DELTA Variable="Category" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Country" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="CustomerID" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Description" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Month" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Price" AttributeName="USE" AttributeValue="Y"/>
+<DELTA Variable="Quantity" AttributeName="USE" AttributeValue="Y"/>
+<DELTA Variable="StockCode" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="TotalPrice" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="VAR1" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Year" AttributeName="USE" AttributeValue="N"/>
+</EmVariableAttributes>
+<EmTargetAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="FileImport" ID="FIMPORT" X="152" Y="216" DESCRIPTION="File Import" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="SAMPLE" TOOLPREFIX="FIMPORT">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMSAMP.Fimport.SOURCE" ImportType="Local" GuessRows="500" Delimiter="," NameRow="Y" SkipRows="0" MaxRows="1000000" MaxCols="10000" FileType="csv" Role="TRAIN" ForceRun="N" Summarize="N" AdvancedAdvisor="N" RunAction="Train" Component="FileImport" IFileName="C:\Users\hanan\Desktop\WIE3007 (Data Mining)\Group project\UPD_RETAIL MODIFIED.csv" AccessTable="NoTableName" UserID="NoUserID" Password="NoPassword">
+<VariableProperties/>
+<EmVariableAttributes>
+<DELTA Variable="Category" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Country" AttributeName="ROLE" AttributeValue="TARGET"/>
+<DELTA Variable="CustomerID" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="InvoiceDate" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Month" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="StockCode" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="TotalPrice" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="VAR1" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Year" AttributeName="ROLE" AttributeValue="REJECTED"/>
+</EmVariableAttributes>
+<EmTargetAttributes/>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<VARIABLESETDELTA Type="EXTERNAL" Extension="txt">
+<Data><![CDATA[
+if NAME=&quot;Category&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Country&quot; then do;
+ROLE=&quot;TARGET&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;CustomerID&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;InvoiceDate&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Month&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;StockCode&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;TotalPrice&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Year&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;VAR1&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+]]>
+</Data>
+</VARIABLESETDELTA>
+<DELTACODE Type="EXTERNAL" Extension="txt">
+<Data><![CDATA[
+if NAME=&quot;Category&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Country&quot; then do;
+ROLE=&quot;TARGET&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;CustomerID&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;InvoiceDate&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Month&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;StockCode&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;TotalPrice&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Year&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;VAR1&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+drop DROP;
+]]>
+</Data>
+</DELTACODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="FileImport" ID="FIMPORT2" X="151" Y="312" DESCRIPTION="File Import (2)" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="SAMPLE" TOOLPREFIX="FIMPORT">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMSAMP.Fimport.SOURCE" ImportType="Local" GuessRows="500" Delimiter="," NameRow="Y" SkipRows="0" MaxRows="1000000" MaxCols="10000" FileType="csv" Role="TRAIN" ForceRun="N" Summarize="N" AdvancedAdvisor="N" RunAction="Train" Component="FileImport" IFileName="C:\Users\hanan\Desktop\WIE3007 (Data Mining)\Group project\UPD_RETAIL MODIFIED.csv" AccessTable="NoTableName" UserID="NoUserID" Password="NoPassword">
+<VariableProperties/>
+<EmVariableAttributes>
+<DELTA Variable="Country" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Description" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="InvoiceDate" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Month" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Price" AttributeName="ROLE" AttributeValue="TARGET"/>
+<DELTA Variable="StockCode" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="TotalPrice" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="VAR1" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Year" AttributeName="ROLE" AttributeValue="REJECTED"/>
+</EmVariableAttributes>
+<EmTargetAttributes/>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<VARIABLESETDELTA Type="EXTERNAL" Extension="txt">
+<Data><![CDATA[
+if NAME=&quot;Country&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Description&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;InvoiceDate&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Month&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Price&quot; then do;
+ROLE=&quot;TARGET&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;StockCode&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;TotalPrice&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Year&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;VAR1&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+]]>
+</Data>
+</VARIABLESETDELTA>
+<DELTACODE Type="EXTERNAL" Extension="txt">
+<Data><![CDATA[
+if NAME=&quot;Country&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Description&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;InvoiceDate&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Month&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Price&quot; then do;
+ROLE=&quot;TARGET&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;StockCode&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;TotalPrice&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Year&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;VAR1&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+drop DROP;
+]]>
+</Data>
+</DELTACODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="FileImport" ID="FIMPORT3" X="140" Y="122" DESCRIPTION="File Import (3)" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="SAMPLE" TOOLPREFIX="FIMPORT">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMSAMP.Fimport.SOURCE" ImportType="Local" GuessRows="500" Delimiter="," NameRow="Y" SkipRows="0" MaxRows="1000000" MaxCols="10000" FileType="csv" Role="TRAIN" ForceRun="N" Summarize="N" AdvancedAdvisor="N" RunAction="Train" Component="FileImport" IFileName="C:\Users\hanan\Desktop\WIE3007 (Data Mining)\Group project\UPD_RETAIL MODIFIED.csv" AccessTable="NoTableName" UserID="NoUserID" Password="NoPassword">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes/>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<VARIABLESETDELTA Type="EXTERNAL" Extension="txt">
+<Data/>
+</VARIABLESETDELTA>
+<DELTACODE Type="EXTERNAL" Extension="txt">
+<Data/>
+</DELTACODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMMODL.MBR.CLASS" COMPONENT="MBR" ID="MBR" X="534" Y="221" DESCRIPTION="MBR" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODEL" TOOLPREFIX="MBR">
+<PROPERTIES NumberOfNeighbors="16" Epsilon="0" Buckets="8" Method="RDTREE" Weighted="Y" ShowNodes="N" Neighbors="Y" ForceRun="N" RunAction="Train" Component="MBR">
+<VariableProperties/>
+<EmVariableAttributes>
+<DELTA Variable="CustomerID" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="InvoiceDate" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Month" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Price" AttributeName="USE" AttributeValue="Y"/>
+<DELTA Variable="Quantity" AttributeName="USE" AttributeValue="Y"/>
+<DELTA Variable="StockCode" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="TotalPrice" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="VAR1" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Year" AttributeName="USE" AttributeValue="N"/>
+</EmVariableAttributes>
+<EmTargetAttributes>
+<Country>
+<DecData Table="EMWS2.MBR_Country_DD">
+<Data>
+<Obs COUNTRY="UNITED KINGDOM" COUNT="42" DATAPRIOR="0.0279441118" TRAINPRIOR="0.0279441118" DECPRIOR="." DECISION1="1" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="SWITZERLAND" COUNT="58" DATAPRIOR="0.0385894877" TRAINPRIOR="0.0385894877" DECPRIOR="." DECISION1="0" DECISION2="1" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="SWEDEN" COUNT="22" DATAPRIOR="0.0146373919" TRAINPRIOR="0.0146373919" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="1" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="SPAIN" COUNT="76" DATAPRIOR="0.0505655356" TRAINPRIOR="0.0505655356" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="1" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="PORTUGAL" COUNT="21" DATAPRIOR="0.0139720559" TRAINPRIOR="0.0139720559" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="1" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="POLAND" COUNT="59" DATAPRIOR="0.0392548237" TRAINPRIOR="0.0392548237" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="1" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="PALESTINE" COUNT="115" DATAPRIOR="0.0765136394" TRAINPRIOR="0.0765136394" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="1" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="NORWAY" COUNT="46" DATAPRIOR="0.0306054558" TRAINPRIOR="0.0306054558" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="1" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="NETHERLANDS" COUNT="27" DATAPRIOR="0.0179640719" TRAINPRIOR="0.0179640719" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="1" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="JAPAN" COUNT="79" DATAPRIOR="0.0525615436" TRAINPRIOR="0.0525615436" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="1" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="ITALY" COUNT="156" DATAPRIOR="0.1037924152" TRAINPRIOR="0.1037924152" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="1" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="ISRAEL" COUNT="5" DATAPRIOR="0.00332668" TRAINPRIOR="0.00332668" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="1" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="ICELAND" COUNT="53" DATAPRIOR="0.0352628077" TRAINPRIOR="0.0352628077" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="1" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="GREECE" COUNT="47" DATAPRIOR="0.0312707917" TRAINPRIOR="0.0312707917" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="1" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="GERMANY" COUNT="103" DATAPRIOR="0.0685296075" TRAINPRIOR="0.0685296075" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="1" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="FRANCE" COUNT="111" DATAPRIOR="0.0738522954" TRAINPRIOR="0.0738522954" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="1" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="EIRE" COUNT="80" DATAPRIOR="0.0532268796" TRAINPRIOR="0.0532268796" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="1" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="DENMARK" COUNT="40" DATAPRIOR="0.0266134398" TRAINPRIOR="0.0266134398" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="1" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="CYPRUS" COUNT="93" DATAPRIOR="0.0618762475" TRAINPRIOR="0.0618762475" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="1" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="CANADA" COUNT="87" DATAPRIOR="0.0578842315" TRAINPRIOR="0.0578842315" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="1" DECISION21="0" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="BELGIUM" COUNT="52" DATAPRIOR="0.0345974717" TRAINPRIOR="0.0345974717" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="1" DECISION22="0" DECISION23="0"/>
+<Obs COUNTRY="AUSTRIA" COUNT="79" DATAPRIOR="0.0525615436" TRAINPRIOR="0.0525615436" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="1" DECISION23="0"/>
+<Obs COUNTRY="AUSTRALIA" COUNT="52" DATAPRIOR="0.0345974717" TRAINPRIOR="0.0345974717" DECPRIOR="." DECISION1="0" DECISION2="0" DECISION3="0" DECISION4="0" DECISION5="0" DECISION6="0" DECISION7="0" DECISION8="0" DECISION9="0" DECISION10="0" DECISION11="0" DECISION12="0" DECISION13="0" DECISION14="0" DECISION15="0" DECISION16="0" DECISION17="0" DECISION18="0" DECISION19="0" DECISION20="0" DECISION21="0" DECISION22="0" DECISION23="1"/>
+</Data>
+<Metadata>
+<Variable NAME="Country" LABEL="" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="COUNT" LABEL="Level Counts" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DATAPRIOR" LABEL="Data Proportions" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="TRAINPRIOR" LABEL="Training Proportions" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECPRIOR" LABEL="Decision Priors" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION1" LABEL="UNITED KINGDOM" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION2" LABEL="SWITZERLAND" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION3" LABEL="SWEDEN" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION4" LABEL="SPAIN" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION5" LABEL="PORTUGAL" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION6" LABEL="POLAND" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION7" LABEL="PALESTINE" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION8" LABEL="NORWAY" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION9" LABEL="NETHERLANDS" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION10" LABEL="JAPAN" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION11" LABEL="ITALY" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION12" LABEL="ISRAEL" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION13" LABEL="ICELAND" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION14" LABEL="GREECE" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION15" LABEL="GERMANY" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION16" LABEL="FRANCE" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION17" LABEL="EIRE" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION18" LABEL="DENMARK" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION19" LABEL="CYPRUS" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION20" LABEL="CANADA" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION21" LABEL="BELGIUM" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION22" LABEL="AUSTRIA" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION23" LABEL="AUSTRALIA" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecData>
+<DecMeta Table="EMWS2.MBR_Country_DM">
+<Data>
+<Obs _TYPE_="MATRIX" VARIABLE="" LABEL="" LEVEL="PROFIT" EVENT="" ORDER="" FORMAT="" TYPE="" COST="" USE="N"/>
+<Obs _TYPE_="TARGET" VARIABLE="Country" LABEL="" LEVEL="NOMINAL" EVENT="UNITED KINGDOM" ORDER="" FORMAT="$14." TYPE="C" COST="" USE=""/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION1" LABEL="UNITED KINGDOM" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION2" LABEL="SWITZERLAND" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION3" LABEL="SWEDEN" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION4" LABEL="SPAIN" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION5" LABEL="PORTUGAL" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION6" LABEL="POLAND" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION7" LABEL="PALESTINE" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION8" LABEL="NORWAY" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION9" LABEL="NETHERLANDS" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION10" LABEL="JAPAN" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION11" LABEL="ITALY" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION12" LABEL="ISRAEL" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION13" LABEL="ICELAND" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION14" LABEL="GREECE" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION15" LABEL="GERMANY" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION16" LABEL="FRANCE" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION17" LABEL="EIRE" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION18" LABEL="DENMARK" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION19" LABEL="CYPRUS" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION20" LABEL="CANADA" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION21" LABEL="BELGIUM" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION22" LABEL="AUSTRIA" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION23" LABEL="AUSTRALIA" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DATAPRIOR" VARIABLE="DATAPRIOR" LABEL="Data Prior" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="N"/>
+<Obs _TYPE_="TRAINPRIOR" VARIABLE="TRAINPRIOR" LABEL="Training Prior" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="N"/>
+<Obs _TYPE_="DECPRIOR" VARIABLE="DECPRIOR" LABEL="Decision Prior" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="N"/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryUnited_Kingdom" LABEL="Predicted: Country=United Kingdom" LEVEL="UNITED KINGDOM" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryUnited_Kingdom" LABEL="Residual: Country=United Kingdom" LEVEL="UNITED KINGDOM" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountrySwitzerland" LABEL="Predicted: Country=Switzerland" LEVEL="SWITZERLAND" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountrySwitzerland" LABEL="Residual: Country=Switzerland" LEVEL="SWITZERLAND" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountrySweden" LABEL="Predicted: Country=Sweden" LEVEL="SWEDEN" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountrySweden" LABEL="Residual: Country=Sweden" LEVEL="SWEDEN" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountrySpain" LABEL="Predicted: Country=Spain" LEVEL="SPAIN" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountrySpain" LABEL="Residual: Country=Spain" LEVEL="SPAIN" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryPortugal" LABEL="Predicted: Country=Portugal" LEVEL="PORTUGAL" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryPortugal" LABEL="Residual: Country=Portugal" LEVEL="PORTUGAL" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryPoland" LABEL="Predicted: Country=Poland" LEVEL="POLAND" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryPoland" LABEL="Residual: Country=Poland" LEVEL="POLAND" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryPalestine" LABEL="Predicted: Country=Palestine" LEVEL="PALESTINE" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryPalestine" LABEL="Residual: Country=Palestine" LEVEL="PALESTINE" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryNorway" LABEL="Predicted: Country=Norway" LEVEL="NORWAY" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryNorway" LABEL="Residual: Country=Norway" LEVEL="NORWAY" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryNetherlands" LABEL="Predicted: Country=Netherlands" LEVEL="NETHERLANDS" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryNetherlands" LABEL="Residual: Country=Netherlands" LEVEL="NETHERLANDS" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryJapan" LABEL="Predicted: Country=Japan" LEVEL="JAPAN" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryJapan" LABEL="Residual: Country=Japan" LEVEL="JAPAN" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryItaly" LABEL="Predicted: Country=Italy" LEVEL="ITALY" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryItaly" LABEL="Residual: Country=Italy" LEVEL="ITALY" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryIsrael" LABEL="Predicted: Country=Israel" LEVEL="ISRAEL" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryIsrael" LABEL="Residual: Country=Israel" LEVEL="ISRAEL" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryIceland" LABEL="Predicted: Country=Iceland" LEVEL="ICELAND" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryIceland" LABEL="Residual: Country=Iceland" LEVEL="ICELAND" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryGreece" LABEL="Predicted: Country=Greece" LEVEL="GREECE" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryGreece" LABEL="Residual: Country=Greece" LEVEL="GREECE" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryGermany" LABEL="Predicted: Country=Germany" LEVEL="GERMANY" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryGermany" LABEL="Residual: Country=Germany" LEVEL="GERMANY" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryFrance" LABEL="Predicted: Country=France" LEVEL="FRANCE" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryFrance" LABEL="Residual: Country=France" LEVEL="FRANCE" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryEIRE" LABEL="Predicted: Country=EIRE" LEVEL="EIRE" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryEIRE" LABEL="Residual: Country=EIRE" LEVEL="EIRE" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryDenmark" LABEL="Predicted: Country=Denmark" LEVEL="DENMARK" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryDenmark" LABEL="Residual: Country=Denmark" LEVEL="DENMARK" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryCyprus" LABEL="Predicted: Country=Cyprus" LEVEL="CYPRUS" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryCyprus" LABEL="Residual: Country=Cyprus" LEVEL="CYPRUS" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryCanada" LABEL="Predicted: Country=Canada" LEVEL="CANADA" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryCanada" LABEL="Residual: Country=Canada" LEVEL="CANADA" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryBelgium" LABEL="Predicted: Country=Belgium" LEVEL="BELGIUM" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryBelgium" LABEL="Residual: Country=Belgium" LEVEL="BELGIUM" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryAustria" LABEL="Predicted: Country=Austria" LEVEL="AUSTRIA" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryAustria" LABEL="Residual: Country=Austria" LEVEL="AUSTRIA" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_CountryAustralia" LABEL="Predicted: Country=Australia" LEVEL="AUSTRALIA" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_CountryAustralia" LABEL="Residual: Country=Australia" LEVEL="AUSTRALIA" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="FROM" VARIABLE="F_Country" LABEL="From: Country" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="C" COST="" USE=""/>
+<Obs _TYPE_="INTO" VARIABLE="I_Country" LABEL="Into: Country" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="C" COST="" USE=""/>
+</Data>
+<Metadata>
+<Variable NAME="_TYPE_" LABEL="Type" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="VARIABLE" LABEL="Variable" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LABEL" LABEL="Label" LENGTH="256" FORMAT="" TYPE="C"/>
+<Variable NAME="LEVEL" LABEL="Measurement Level" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="EVENT" LABEL="Target Event" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="ORDER" LABEL="Order" LENGTH="10" FORMAT="" TYPE="C"/>
+<Variable NAME="FORMAT" LABEL="Format" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="TYPE" LABEL="Type" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="COST" LABEL="Cost" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="USE" LABEL="Use" LENGTH="1" FORMAT="" TYPE="C"/>
+</Metadata>
+</DecMeta>
+</Country>
+</EmTargetAttributes>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMASSMT.ASSESS.CLASS" COMPONENT="ModelCompare" ID="MdlComp" X="726" Y="224" DESCRIPTION="Model Comparison" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="ASSESS" TOOLPREFIX="MdlComp">
+<PROPERTIES NumberOfReportedLevels="1E-6" NormalizeReportingVariables="Y" DecileBin="20" LiftEpsilon="1E-6" ProfitEpsilon="1E-6" RoiEpsilon="1E-6" ScoreDistBin="20" RocChart="Y" RocEpsilon="0.01" AssessAllTargetLevels="N" SelectionData="DEFAULT" HPCriteria="DEFAULT" intervalViyaCriteria="DEFAULT" classViyaCriteria="DEFAULT" SelectionTable="TRAIN" SelectionCriteria="DEFAULT" SelectionDepth="10" NumberofBins="20" RecomputeAssess="N" TargetName="Country" ModelId="MBR" ModelDescription="MBR" ModelCriteria="Valid: Misclassification Rate" ForceRun="N" RunAction="Train" Component="ModelCompare" StatisticUsed="_VMISC_" TargetLabel="">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMASSMT.ASSESS.CLASS" COMPONENT="ModelCompare" ID="MdlComp2" X="770" Y="323" DESCRIPTION="Model Comparison (2)" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="ASSESS" TOOLPREFIX="MdlComp">
+<PROPERTIES NumberOfReportedLevels="1E-6" NormalizeReportingVariables="Y" DecileBin="20" LiftEpsilon="1E-6" ProfitEpsilon="1E-6" RoiEpsilon="1E-6" ScoreDistBin="20" RocChart="Y" RocEpsilon="0.01" AssessAllTargetLevels="N" SelectionData="DEFAULT" HPCriteria="DEFAULT" intervalViyaCriteria="DEFAULT" classViyaCriteria="DEFAULT" SelectionTable="TRAIN" SelectionCriteria="DEFAULT" SelectionDepth="10" NumberofBins="20" RecomputeAssess="N" TargetName="Price" ModelId="Reg" ModelDescription="Regression" ModelCriteria="Valid: Average Squared Error" ForceRun="N" RunAction="Train" Component="ModelCompare" StatisticUsed="_VASE_" TargetLabel="">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMSAMP.EMDPART.CLASS" COMPONENT="Partition" ID="Part" X="348" Y="217" DESCRIPTION="Data Partition" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="SAMPLE" TOOLPREFIX="Part">
+<PROPERTIES Method="DEFAULT" TrainPct="40" ValidatePct="30" TestPct="30" RandomSeed="12345" OutputType="DATA" IntervalDistribution="Y" ClassDistribution="Y" ForceRun="N" RunAction="Train" Component="Partition">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMSAMP.EMDPART.CLASS" COMPONENT="Partition" ID="Part2" X="377" Y="311" DESCRIPTION="Data Partition (2)" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="SAMPLE" TOOLPREFIX="Part">
+<PROPERTIES Method="DEFAULT" TrainPct="40" ValidatePct="30" TestPct="30" RandomSeed="12345" OutputType="DATA" IntervalDistribution="Y" ClassDistribution="Y" ForceRun="N" RunAction="Train" Component="Partition">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="Profile" ID="Prof" X="578" Y="135" DESCRIPTION="Segment Profile" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="ASSESS" TOOLPREFIX="Prof">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMEXPL.PROFILE.SOURCE" DataNeeded="Y" MinWorth="0.01" MaxNumInput="10" MaxNumReport="10" NumHistBars="8" ProfileAll="N" PrintWorth="Y" UseReportVars="Y" TargetRole="NONE" OtherPercentCutOff="95" MaxDepth="1" ForceRun="N" RunAction="Train" Component="Profile">
+<VariableProperties/>
+<EmVariableAttributes>
+<DELTA Variable="Category" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Country" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="CustomerID" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Description" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Distance" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="InvoiceDate" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Month" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Price" AttributeName="USE" AttributeValue="Y"/>
+<DELTA Variable="Quantity" AttributeName="USE" AttributeValue="Y"/>
+<DELTA Variable="StockCode" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="TotalPrice" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="VAR1" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Year" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="_SEGMENT_" AttributeName="USE" AttributeValue="Y"/>
+<DELTA Variable="_SEGMENT_LABEL_" AttributeName="USE" AttributeValue="Y"/>
+</EmVariableAttributes>
+<EmTargetAttributes/>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMMODL.REGRESSION.CLASS" COMPONENT="Regression" ID="Reg" X="577" Y="315" DESCRIPTION="Regression" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODEL" TOOLPREFIX="Reg">
+<PROPERTIES MainEffect="Y" TwoFactor="N" Polynomial="N" PolynomialDegree="2" Terms="N" Error="LOGISTIC" LinkFunction="LOGIT" SuppressIntercept="N" InputCoding="DEVIATION" MinResourceUse="N" ModelSelection="NONE" SelectionCriterion="DEFAULT" SelectionDefault="Y" Sequential="N" SlEntry="0.05" SlStay="0.05" Start="0" Stop="0" Force="0" Hierarchy="CLASS" Rule="NONE" MaxStep="." StepOutput="N" OptimizationTechnique="DEFAULT" ModelDefaults="Y" MaxIterations="." MaxFunctionCalls="." MaxCPUTime="1 HOUR" ConvDefaults="Y" AbsConvValue="-1.34078E154" AbsFValue="0" AbsFTime="1" AbsGValue="0.00001" AbsGTime="1" AbsXValue="1E-8" AbsXTime="1" FConvValue="0" FConvTimes="1" GConvValue="1E-6" GConvTimes="1" ClParm="N" Covout="N" CovB="N" CorB="N" Simple="N" SuppressOutput="N" Details="N" PrintDesignMatrix="N" SASSPDS="N" Performance="N" ExcludedVariable="REJECT" ForceRun="N" RunAction="Train" Component="Regression" Interactions="">
+<VariableProperties/>
+<EmVariableAttributes>
+<DELTA Variable="Category" AttributeName="USE" AttributeValue="Y"/>
+<DELTA Variable="Country" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="CustomerID" AttributeName="USE" AttributeValue="Y"/>
+<DELTA Variable="Description" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="InvoiceDate" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Month" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Quantity" AttributeName="USE" AttributeValue="Y"/>
+<DELTA Variable="StockCode" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="TotalPrice" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="VAR1" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Year" AttributeName="USE" AttributeValue="N"/>
+</EmVariableAttributes>
+<EmTargetAttributes>
+<Price>
+<DecData Table="EMWS2.Reg_Price_DD">
+<Data>
+<Obs PRICE="0"/>
+<Obs PRICE="4.21"/>
+<Obs PRICE="0.8267810026"/>
+</Data>
+<Metadata>
+<Variable NAME="Price" LABEL="" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecData>
+<DecMeta Table="EMWS2.Reg_Price_DM">
+<Data>
+<Obs _TYPE_="MATRIX" VARIABLE="" LABEL="" FORMAT="" LEVEL="PROFIT" TYPE="" COST="" USE="N" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="TARGET" VARIABLE="Price" LABEL="" FORMAT="BEST12.0" LEVEL="INTERVAL" TYPE="N" COST="" USE="" MIN="0" MEAN="0.8267810026" MAX="4.21"/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_Price" LABEL="Predicted: Price" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_Price" LABEL="Residual: Price" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+</Data>
+<Metadata>
+<Variable NAME="_TYPE_" LABEL="Type" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="VARIABLE" LABEL="Variable" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LABEL" LABEL="Label" LENGTH="256" FORMAT="" TYPE="C"/>
+<Variable NAME="FORMAT" LABEL="Format" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LEVEL" LABEL="Measurement Level" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="TYPE" LABEL="Type" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="COST" LABEL="Cost" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="USE" LABEL="Use" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="MIN" LABEL="Minimum" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MEAN" LABEL="Mean" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MAX" LABEL="Maximum" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecMeta>
+</Price>
+</EmTargetAttributes>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+</NODES>
+<CONNECTIONS>
+<CONNECTION FROM="FIMPORT" TO="Part"/>
+<CONNECTION FROM="Part" TO="MBR"/>
+<CONNECTION FROM="MBR" TO="MdlComp"/>
+<CONNECTION FROM="FIMPORT2" TO="Part2"/>
+<CONNECTION FROM="Part2" TO="Reg"/>
+<CONNECTION FROM="Reg" TO="MdlComp2"/>
+<CONNECTION FROM="FIMPORT3" TO="Clus"/>
+<CONNECTION FROM="Clus" TO="Prof"/>
+</CONNECTIONS>
+<NOTES>
+<DATA><![CDATA[
+
+]]>
+</DATA>
+</NOTES>
+</Workspace>
+</_ROOT_>
